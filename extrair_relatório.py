@@ -7,6 +7,7 @@ import time
 from cryptography.fernet import Fernet
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Carrega a chave de criptografia e a senha criptografada do .env
@@ -22,7 +23,7 @@ senha = cipher_suite.decrypt(encrypted_password).decode()
 navegador = webdriver.Chrome()  # Inicia o Chrome WebDriver
 
 # Acessar o portal
-navegador.get("https://trade.fidelize.com.br/webbsanofi/webol/index.php?r=site/login")
+navegador.get("https://linkdosite/login")
 time.sleep(4)  # Aguarde o carregamento da página
 
 # Clicar no botão de Aceitar Cookies
@@ -57,8 +58,10 @@ try:
     print("Clicou no botão 'Entendi'.")
 except Exception as e:
     print(f"Erro ao clicar no botão 'Entendi': {e}")
-
 time.sleep(5)  # Aguarde o carregamento da próxima etapa
+
+
+# //*[@id="nav"]/li[7]/a/span
 
 # Clicar na aba "Relatório" e na opção "Relatório de Ressarcimento"
     # Espera até que o elemento span com a classe 'select2-chosen' esteja visível e clicável
@@ -112,19 +115,19 @@ try:
     data_fim.send_keys(Keys.RETURN)
     print("Data de fim preenchida e Enter pressionado.")
     time.sleep(2)
-    # Preenche o campo de pesquisa "BUTERI"
-    campo_pesquisa_BUTERI = WebDriverWait(navegador, 10).until(
+    # Preenche o campo de pesquisa "DISTRIBUIDOR"
+    campo_pesquisa_DISTRIBUIDOR = WebDriverWait(navegador, 10).until(
         EC.element_to_be_clickable((By.ID, "s2id_autogen1"))
     )
-    campo_pesquisa_BUTERI.send_keys("BUTERI")
-    campo_pesquisa_BUTERI.send_keys(Keys.RETURN)
-    print("Pesquisado por 'BUTERI' e Enter pressionado.")
+    campo_pesquisa_DISTRIBUIDOR.send_keys("DISTRIBUIDOR")
+    campo_pesquisa_DISTRIBUIDOR.send_keys(Keys.RETURN)
+    print("Pesquisado por 'DISTRIBUIDOR' e Enter pressionado.")
     time.sleep(2)
     # Preenche o email
     campo_email = WebDriverWait(navegador, 10).until(
         EC.element_to_be_clickable((By.ID, "RelatorioRessarcimento_email"))
     )
-    campo_email.send_keys("yago.campos@funcionalcorp.com.br")
+    campo_email.send_keys("email@email.com.br")
     print("Email preenchido.")
     time.sleep(2)
     # Rolagem até o botão "Selecionar todas as colunas" e clicar

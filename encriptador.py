@@ -5,7 +5,7 @@ key = Fernet.generate_key()
 cipher_suite = Fernet(key)
 
 # Exemplo de senha
-password = "".encode()  # Insira sua senha entre ""
+password = "123".encode()  # Insira sua senha entre ""
 encrypted_password = cipher_suite.encrypt(password)
 
 # Exibe a chave e a senha criptografada para armazená-las no .env
